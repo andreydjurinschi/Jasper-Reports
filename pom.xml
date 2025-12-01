@@ -12,6 +12,7 @@
     <modules>
         <module>file-provider</module>
         <module>jasper-collection-data</module>
+        <module>jasper-bean-collection-data</module>
     </modules>
 
     <properties>

@@ -15,6 +15,7 @@ public class JasperCollectionGenerator {
         JasperReport report = JasperCompileManager.compileReport(FileProvider.readJRXML());
 
         JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(allHolidays);
+
         JasperPrint print = JasperFillManager.fillReport(report,null ,dataSource);
         String dirCreating = ExportProvider.exportToDesktop(dirName);
         JasperExportManager.exportReportToPdfFile(print, dirCreating+"/"+fileName);

@@ -9,4 +9,7 @@ public class FileProvider {
     public static InputStream readJRXML(){
         return FileProvider.class.getClassLoader().getResourceAsStream("CedacriReport1.jrxml");
     }
+    public static InputStream readJRXMLForBean(){
+        return FileProvider.class.getClassLoader().getResourceAsStream("CedacriBeanReport.jrxml");
+    }
 }
