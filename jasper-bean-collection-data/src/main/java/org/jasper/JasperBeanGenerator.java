@@ -24,6 +24,6 @@ public class JasperBeanGenerator {
     }
 
     public static void main(String[] ar) throws JRException, IOException {
-        generate("beanReport.pdf", "test");
+        generate("зщзщзщ.pdf", "test");
     }
 }

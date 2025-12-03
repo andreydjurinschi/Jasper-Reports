@@ -12,4 +12,7 @@ public class FileProvider {
     public static InputStream readJRXMLForBean(){
         return FileProvider.class.getClassLoader().getResourceAsStream("CedacriBeanReport.jrxml");
     }
+    public static InputStream readJRXMLForResultSet(){
+        return FileProvider.class.getClassLoader().getResourceAsStream("CedacriResultSetReport.jrxml");
+    }
 }

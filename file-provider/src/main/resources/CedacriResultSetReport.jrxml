@@ -1,0 +1,60 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="CedacriReport1" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ebfbcaf-59d4-4bc1-afa1-0b931ee5f225">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<query language="xPath"><![CDATA[Year-2021/holydays]]></query>
+	<field name="COUNTRY" class="java.lang.String">
+		<description><![CDATA[COUNTRY]]></description>
+		<property name="net.sf.jasperreports.xpath.field.expression" value="COUNTRY"/>
+	</field>
+	<field name="DATE" class="java.sql.Date">
+		<description><![CDATA[DATE]]></description>
+		<property name="net.sf.jasperreports.xpath.field.expression" value="DATE"/>
+	</field>
+	<field name="NAME" class="java.lang.String">
+		<description><![CDATA[NAME]]></description>
+		<property name="net.sf.jasperreports.xpath.field.expression" value="NAME"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="88" splitType="Stretch">
+		<element kind="staticText" uuid="7eaee753-d6a3-4291-b5a1-b71add111eaa" x="-12" y="18" width="585" height="52" fontSize="30.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Holidays Result Set Report]]></text>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+	</title>
+	<columnHeader height="50">
+		<element kind="staticText" uuid="e051e667-0355-4dbd-9674-edea30d74d37" mode="Opaque" x="180" y="0" width="200" height="50" backcolor="#6d9bdb" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Date]]></text>
+		</element>
+		<element kind="staticText" uuid="db3c32e5-5a2e-45af-900f-a6df6b2a2deb" mode="Opaque" x="0" y="0" width="180" height="50" backcolor="#6d9bdb" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Country]]></text>
+		</element>
+		<element kind="staticText" uuid="b7a01d25-06d6-47c0-94fa-4a491a6d17fd" mode="Opaque" x="380" y="0" width="175" height="50" backcolor="#6d9bdb" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="cbf88244-6443-47c0-92aa-bf8a5d3d4055" mode="Opaque" x="0" y="0" width="180" height="30" backcolor="#FAF7F7" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{COUNTRY}]]></expression>
+			</element>
+			<element kind="textField" uuid="fe6b0420-b973-4d1c-8566-508d357c77c5" mode="Opaque" x="180" y="0" width="200" height="30" backcolor="#FAF7F7" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{DATE}]]></expression>
+<!--				<expression><![CDATA[
+			    new java.text.SimpleDateFormat("dd/MM/yyyy").parse($F{DATE})
+			]]></expression>-->
+			</element>
+			<element kind="textField" uuid="f0b31a24-c4c4-4068-944d-7b99e938615e" mode="Opaque" x="380" y="0" width="175" height="30" backcolor="#FAF7F7" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{NAME}]]></expression>
+			</element>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+	<summary height="80" splitType="Stretch">
+		<element kind="staticText" uuid="33d03b0e-b823-46df-b968-cd4419d1e626" mode="Opaque" x="0" y="0" width="180" height="50" backcolor="#6d9bdb" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[All holidays count]]></text>
+		</element>
+		<element kind="textField" uuid="1af9557d-e589-412c-8016-e36f394fe10e" x="203" y="-4" width="350" height="60" fontSize="25.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{REPORT_COUNT}]]></expression>
+		</element>
+	</summary>
+</jasperReport>

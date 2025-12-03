@@ -1,0 +1,11 @@
+services:
+  holidays_db:
+    image: postgres:alpine
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  db_data:

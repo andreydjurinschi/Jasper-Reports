@@ -13,6 +13,8 @@
         <module>file-provider</module>
         <module>jasper-collection-data</module>
         <module>jasper-bean-collection-data</module>
+        <module>db-provider</module>
+        <module>result-set-source</module>
     </modules>
 
     <properties>
