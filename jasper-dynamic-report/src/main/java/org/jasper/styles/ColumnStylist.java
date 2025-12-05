@@ -20,22 +20,29 @@ public class ColumnStylist {
     private final StyleBuilder columnStyle = stl.style();
     private final StyleBuilder columnHeaderStyle = stl.style();
 
-    public ColumnStylist setStringColumns(String[] columns, String[] fields){
+    public void setStringColumns(String[] columns, String[] fields){
         for(int i = 0; i < columns.length; i++){
              stringFieldsBuilder.add(Columns.column(columns[i], fields[i].toUpperCase(),String.class));
         }
-        return this;
     }
-    public ColumnStylist setDateColumns(String[] columns, String[] fields){
+    public void setDateColumns(String[] columns, String[] fields){
         for(int i = 0; i < columns.length; i++){
             dateFieldsBuilder.add(Columns.column(columns[i], fields[i].toUpperCase(),LocalDate.class));
         }
+    }
+
+    public ColumnStylist setColumnHeaderAlignment(){
+        columnHeaderStyle.setHorizontalTextAlignment(HorizontalTextAlignment.CENTER);
         return this;
     }
 
-    public ColumnStylist setColumnHeaderStyle(){
-        columnHeaderStyle.setHorizontalTextAlignment(HorizontalTextAlignment.CENTER);
+    public ColumnStylist setColumnHeaderFontStyle(){
+        columnHeaderStyle.setFontSize(20).bold().setForegroundColor(new Color(38, 67, 140));
         return this;
+    }
+
+    public void setColumnHeaderPadding(){
+        columnHeaderStyle.setBottomPadding(15);
     }
 
     public ColumnStylist setColumnFont(int size){
@@ -73,7 +80,7 @@ public class ColumnStylist {
     }
 
     public StyleBuilder buildHeaderStyles(){
-        return columnStyle;
+        return columnHeaderStyle;
     }
 
     public List<TextColumnBuilder<String>> buildStringCols(){

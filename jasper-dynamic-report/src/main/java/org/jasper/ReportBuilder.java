@@ -1,25 +1,17 @@
 package org.jasper;
 
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
-import net.sf.dynamicreports.jasper.builder.export.JasperPdfExporterBuilder;
-import net.sf.dynamicreports.report.builder.column.Columns;
-import net.sf.dynamicreports.report.builder.column.TextColumnBuilder;
 import net.sf.dynamicreports.report.builder.component.Components;
-import net.sf.dynamicreports.report.builder.group.GroupBuilder;
-import net.sf.dynamicreports.report.builder.group.GroupBuilders;
 import net.sf.dynamicreports.report.builder.style.StyleBuilder;
 import net.sf.dynamicreports.report.exception.DRException;
 
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.jasper.mapper.XmlBeanMapper;
 import org.jasper.styles.ColumnStylist;
 import org.jasper.styles.TitleStylist;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDate;
+
 
 
 public class ReportBuilder {
@@ -35,8 +27,6 @@ public class ReportBuilder {
                 Components.text("Dynamic Report Builder").setStyle(titleStyleBuilder)
         );
 
-
-
         // columns design
         ColumnStylist columnStylist = new ColumnStylist();
         columnStylist.setStringColumns(new String[]{"Holiday name", "Country name"},new String[]{"name", "country"});
@@ -46,16 +36,18 @@ public class ReportBuilder {
                 .setColumnBackgroundColor(205, 210, 238)
                 .setColumnPaddings(15)
                 .setColumnTextAlignment()
-                .setColumnHeaderStyle();
+                .setColumnHeaderAlignment()
+                .setColumnHeaderFontStyle()
+                .setColumnHeaderPadding();
 
         StyleBuilder columnStyle = columnStylist.buildColumnStyles();
         StyleBuilder headerColumnStyle = columnStylist.buildHeaderStyles();
 
         for(var col : columnStylist.buildStringCols()){
-            report.addColumn(col.setStyle(headerColumnStyle));
+            report.addColumn(col.setTitleStyle(headerColumnStyle));
         }
         for(var col : columnStylist.buildDateCols()){
-            report.addColumn(col.setStyle(headerColumnStyle));
+            report.addColumn(col.setTitleStyle(headerColumnStyle));
         }
 
         report.columns().setColumnStyle(columnStyle);

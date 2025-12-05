@@ -32,9 +32,8 @@ public class TitleStylist {
         return this;
     }
 
-    public TitleStylist addPadding(int ... values){
+    public void addPadding(int ... values){
         if(values.length == 0){
-            return this;
         } else if (values.length == 4) {
             builder.setLeftPadding(values[0]);
             builder.setTopPadding(values[1]);
@@ -45,7 +44,6 @@ public class TitleStylist {
         }else {
             throw new RuntimeException("Padding values must be: 0 or 4 or 1");
         }
-        return this;
     }
 
     public StyleBuilder buildTitle(){
